@@ -1,5 +1,5 @@
 <template>
-  <div id="app" :class="{dark: dark}" class="light">
+  <div id="app" v-bind:class="{dark: dark}" class="light">
     <button @click="changeTheme">Change theme</button>
     <router-view></router-view>
   </div>
@@ -36,7 +36,7 @@ export default {
     }
   },
   mounted(){
-      this.dark = agCookie.read('theme');
+      this.dark = JSON.parse( agCookie.read('theme'));
   }
 }
 </script>
